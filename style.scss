@@ -1,0 +1,219 @@
+$backgr_base: #fff;
+$backgr_accent: #b29a9a;
+$text_color_body: #000;
+$text_color_opacity: rgba(0, 0, 0, 0.678);
+$text_color_accent: #fff;
+$font_bold: 'DM Serif Display', serif;
+$font_regular: 'Prata', serif;
+
+//to the entire site***************************
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background: rgba(153, 205, 50, 0.479);
+    color: $text_color_body;
+}
+a{
+    text-decoration: none;   
+}
+h1{
+    font-family: $font_regular;
+    font-size: 16px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $text_color_body;
+}
+h2{
+    font-family: $font_regular;
+    font-size: 15px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: $text_color_opacity;
+}
+h3{
+    font-family: $font_regular;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $text_color_accent;
+}
+p{
+    font-family: $font_bold;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    margin-bottom: 25px;
+    color: $text_color_accent;
+}
+section{
+    margin: 75px auto 0;
+    padding: 0 40px;
+    max-width: 1500px; 
+}
+//header****************************
+.header_container{
+    background: $backgr_accent;
+    position: fixed;
+    display: block;
+    box-sizing: border-box;
+    padding: 12px 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+.site_header{
+    background: $backgr_accent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    //height: 35px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+nav{
+    height: 46px;
+}
+.logo{
+    width: 132px;
+}
+.btn{
+    font-family: $font_regular;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    padding: 8.5px 20px;
+    &_nav{
+        display: flex;
+        align-items: center;
+        height: 43px;
+        top: 5px;
+        padding: 8.5px 0;
+        margin: 0 20px;
+        font-family: $font_regular;
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 0.2em;
+        color: $text_color_accent;
+    }
+    &_accent{
+        font-family: $font_bold;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.4em;
+        padding: 11px 20px;
+        color: $text_color_accent;
+        background: $backgr_accent;
+        cursor: pointer;
+    }
+}
+.underline{
+    display:inline-block;
+    position: relative;
+    color: #fff;
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 100%;
+        margin-right: 3px;
+        border-bottom: 2px solid white;
+        transition: right .5s;
+    }
+    &:hover::after{
+        right: 0;
+    }
+}
+.icon{
+    color: $text_color_accent;
+    padding: 8.5px 20px;
+}
+// Main content*************************************
+main{
+    margin: auto;
+    background: $backgr_base;  
+}
+.opening_view{
+    background: url(./images/img_template.jpg); 
+    margin-top: 65px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 100vh;
+    max-height: 1400px;
+ }
+ .center{
+     display: flex;
+     justify-content: center;
+     padding-bottom: 50px;
+ }
+ .img_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.img_box{
+    display: grid;
+    padding: 0 0 0 22px;
+    margin: 0 0 32px;
+}
+.img_link{
+    display: inline-block; 
+    position: relative; 
+}
+.img_prewiev{
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}
+.img_info{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgb(32, 9, 9);
+    background: #ffffff7d;
+    opacity: 0;
+    &:hover{
+        opacity: 1;
+        transition-duration: 0.4s;
+        transition-timing-function: ease-out;
+    }
+}
+//signe up part***************************************
+.sign_up_cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.input_cont{
+    display: flex;
+     justify-content: center;
+     padding-bottom: 50px;
+}
+button{
+    border: none;
+}
+.color_opacity{
+    color: $text_color_opacity;
+}
+.input_email{
+    width: 250px;
+}
+// Footer************************************
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background: $backgr_accent;
+}
+//Media**************************************
