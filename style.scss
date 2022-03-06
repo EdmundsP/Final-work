@@ -1,4 +1,5 @@
 $backgr_base: #fff;
+$backgr_hover: #b29a9a7c;
 $backgr_accent: #b29a9a;
 $text_color_body: #000;
 $text_color_opacity: rgba(0, 0, 0, 0.678);
@@ -12,7 +13,7 @@ $font_regular: 'Prata', serif;
 }
 body{
     margin: 0;
-    background: rgba(153, 205, 50, 0.479);
+    background: #fff;
     color: $text_color_body;
 }
 a{
@@ -40,8 +41,8 @@ h3{
     color: $text_color_accent;
 }
 p{
-    font-family: $font_bold;
-    font-size: 14px;
+    font-family: $font_regular;
+    font-size: 10px;
     letter-spacing: 0.15em;
     margin-bottom: 25px;
     color: $text_color_accent;
@@ -74,7 +75,10 @@ section{
     padding: 0 40px;
 }
 nav{
-    height: 46px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .logo{
     width: 132px;
@@ -82,7 +86,7 @@ nav{
 .btn{
     font-family: $font_regular;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 13px;
     letter-spacing: 0.2em;
     padding: 8.5px 20px;
     &_nav{
@@ -90,11 +94,11 @@ nav{
         align-items: center;
         height: 43px;
         top: 5px;
-        padding: 8.5px 0;
-        margin: 0 20px;
+        padding: 8.5px 5px;
+        margin: 0 15px;
         font-family: $font_regular;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 13px;
         letter-spacing: 0.2em;
         color: $text_color_accent;
     }
@@ -108,6 +112,55 @@ nav{
         background: $backgr_accent;
         cursor: pointer;
     }
+    &_drop{
+        display: flex;
+        align-items: center;
+        height: 43px;
+        top: 5px;
+        padding: 8.5px 15px;
+        margin: 0 5px;
+        font-family: $font_regular;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        color: $text_color_accent;
+        &:hover{
+            color: $text_color_body;
+            background: $backgr_base;
+        }
+
+    }
+}
+.drop_content{
+    width: 100%;
+    height: 100%;
+    font-family: $font_regular;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    padding: 13px 7px;
+    color: $text_color_body;
+    background: $backgr_base;
+    cursor: pointer;
+    &:hover{
+        background: $backgr_hover;
+    }
+}
+.dropdown{
+    position: relative;
+}
+.drop_box{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: column;
+    background: #fff;
+    width: 150px;
+    margin-left: 5px;
+}
+.show{
+    display: flex;
 }
 .underline{
     display:inline-block;
@@ -117,7 +170,7 @@ nav{
         content: "";
         display: block;
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         left: 0;
         right: 100%;
         margin-right: 3px;
@@ -128,9 +181,35 @@ nav{
         right: 0;
     }
 }
+.underline_shop{
+    display:inline-block;
+    position: relative;
+    color: #fff;
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 100%;
+        margin: 0 10px;
+        border-bottom: 2px solid black;
+        transition: right .5s;
+    }
+    &:hover::after{
+        right: 0;
+    }
+}
+.icon_menu{
+    min-width: 160px;
+}
 .icon{
     color: $text_color_accent;
     padding: 8.5px 20px;
+    display: inline-block;
+}
+.hiden_menu{
+    display: none;
 }
 // Main content*************************************
 main{
@@ -139,7 +218,7 @@ main{
 }
 .opening_view{
     background: url(./images/img_template.jpg); 
-    margin-top: 65px;
+    margin-top: 60px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -179,7 +258,7 @@ main{
     justify-content: center;
     height: 100%;
     color: rgb(32, 9, 9);
-    background: #ffffff7d;
+    background: #3836367d;
     opacity: 0;
     &:hover{
         opacity: 1;
@@ -192,18 +271,21 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 50px;
+    padding: 70px 0 0;
 }
 .input_cont{
     display: flex;
      justify-content: center;
-     padding-bottom: 50px;
+     padding-bottom: 75px;
 }
 button{
     border: none;
 }
-.color_opacity{
-    color: $text_color_opacity;
+.p_update{
+    font-family: $font_bold;
+    color: $text_color_body;
+    font-size: 13px;
+    letter-spacing: 0.1em;
 }
 .input_email{
     width: 250px;
@@ -213,7 +295,21 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 150px;
     background: $backgr_accent;
 }
 //Media**************************************
+@media screen and (max-width: 790px ) {
+    .img_container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .img_prewiev{
+        max-width: 503px;
+    }
+    nav{
+        display: none;
+    }
+    .hiden_menu{
+        display: contents;
+    }
+}
