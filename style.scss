@@ -89,7 +89,7 @@ nav{
     font-size: 13px;
     letter-spacing: 0.2em;
     padding: 8.5px 20px;
-    &_nav{
+    &_nav, &__mobile{
         display: flex;
         align-items: center;
         height: 43px;
@@ -207,6 +207,12 @@ nav{
     color: $text_color_accent;
     padding: 8.5px 20px;
     display: inline-block;
+    &_open{
+        color: $text_color_accent;
+        padding: 8.5px 20px;
+        display: inline-block;
+        border-left: #fff solid 1px;
+    }
 }
 .hiden_menu{
     display: none;
@@ -312,4 +318,44 @@ footer{
     .hiden_menu{
         display: contents;
     }
+}
+//Mobile nav ************************************
+.small_screen_main{
+    display: none;
+    //display: flex;
+    justify-content: end;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: #e6e6e663;
+}
+.drawer_block{
+    position: relative;
+    width: 300px;
+    right: 0px;
+    background: $backgr_accent;
+}
+.mobile_nav__header{
+    display: flex;
+    justify-content: end;
+    padding: 12px 0;
+    border-bottom: 1px solid #fff;
+}
+.close{
+    padding: 14px 25px ;
+}
+.mobile_nav{
+    margin: 0;
+    padding: 0;
+}
+.mobile_nav__item{
+    list-style: none;
+    border-bottom: 1px solid #fff;
+}
+.drow{
+    display: flex;
+    justify-content: space-between;
+    
 }
