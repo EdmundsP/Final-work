@@ -47,10 +47,21 @@ p{
     margin-bottom: 25px;
     color: $text_color_accent;
 }
+.p_update{
+    font-family: $font_bold;
+    color: $text_color_body;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+}
 section{
     margin: 75px auto 0;
     padding: 0 40px;
     max-width: 1500px; 
+}
+.center{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
 }
 //header****************************
 .header_container{
@@ -159,9 +170,7 @@ nav{
     width: 150px;
     margin-left: 5px;
 }
-.show{
-    display: flex;
-}
+
 .underline{
     display:inline-block;
     position: relative;
@@ -231,11 +240,7 @@ main{
     height: 100vh;
     max-height: 1400px;
  }
- .center{
-     display: flex;
-     justify-content: center;
-     padding-bottom: 50px;
- }
+ 
  .img_container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -287,12 +292,7 @@ main{
 button{
     border: none;
 }
-.p_update{
-    font-family: $font_bold;
-    color: $text_color_body;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-}
+
 .input_email{
     width: 250px;
 }
@@ -330,12 +330,15 @@ footer{
     position: fixed;
     top: 0;
     background: #e6e6e663;
+    transition: right .5s;
+    //transition-duration: 0.4s;
+    transition-timing-function: ease-out;
 }
 .drawer_block{
     position: relative;
     width: 300px;
     right: 0px;
-    background: $backgr_accent;
+    background: $backgr_accent;  
 }
 .mobile_nav__header{
     display: flex;
@@ -356,6 +359,51 @@ footer{
 }
 .drow{
     display: flex;
+    justify-content: space-between; 
+}
+// search expend**************************
+.search_expend{
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    height: 70px;
+    top: 0;
+    left: 0;
+    display: none;  //flex
     justify-content: space-between;
-    
+    align-items: center;
+}
+.search__dark, .close__dark{ 
+    color: #000;
+    display: flex;
+    //close dark icona nemaina krāsu!!
+}
+.nav_input{  
+    width: 100%;
+    border: none;
+    // kad lauks aktīvs noņemt rāmi!?
+    // placeholder stilu sakārtot!?
+}
+
+//contact page**************
+.input_cont{
+    max-width: 1060px;
+    display: flex;
+    flex-direction: column;
+}
+.name_mail{
+    display: flex;
+    justify-content: space-between;
+}
+.input_area{
+    width: 50%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+textarea{
+ width: 100%;
+ min-width: 495px;
 }
