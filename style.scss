@@ -47,21 +47,37 @@ p{
     margin-bottom: 25px;
     color: $text_color_accent;
 }
+.p_text{
+    font-family: $font_regular;
+    color: $text_color_body;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
 .p_update{
     font-family: $font_bold;
     color: $text_color_body;
     font-size: 13px;
     letter-spacing: 0.1em;
+    text-align: center;
 }
 section{
-    margin: 75px auto 0;
+   margin: auto;
     padding: 0 40px;
     max-width: 1500px; 
 }
 .center{
     display: flex;
     justify-content: center;
-    padding-bottom: 50px;
+    padding: 75px 0 50px;
+    margin-top: 65px;
+    min-width: 242.5px;
+}
+.center_simpel{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 65px;
+    min-width: 242.5px;
 }
 //header****************************
 .header_container{
@@ -69,7 +85,7 @@ section{
     position: fixed;
     display: block;
     box-sizing: border-box;
-    padding: 12px 0;
+    padding: 10px 0;
     left: 0;
     right: 0;
     top: 0;
@@ -116,7 +132,7 @@ nav{
     &_accent{
         font-family: $font_bold;
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 13px;
         letter-spacing: 0.4em;
         padding: 11px 20px;
         color: $text_color_accent;
@@ -127,7 +143,7 @@ nav{
         display: flex;
         align-items: center;
         height: 43px;
-        top: 5px;
+        //top: 5px;
         padding: 8.5px 15px;
         margin: 0 5px;
         font-family: $font_regular;
@@ -142,6 +158,30 @@ nav{
 
     }
 }
+// underline_shop active template*******
+.drop_active_cont{
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    margin: 0 5px;
+    background: #fff;
+}
+.btn_drop__active{
+    height: 25px;
+    margin: 8.5px;
+    padding: 0 4px;
+    font-family: "Prata", serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: #000;
+    background: #fff;
+    border-bottom: 2px solid black;
+    bottom: 10px;
+}
+//********************************************
 .drop_content{
     width: 100%;
     height: 100%;
@@ -159,6 +199,7 @@ nav{
 }
 .dropdown{
     position: relative;
+    top: 5px;
 }
 .drop_box{
     position: absolute;
@@ -169,6 +210,7 @@ nav{
     background: #fff;
     width: 150px;
     margin-left: 5px;
+    top: 33px;
 }
 
 .underline{
@@ -201,12 +243,22 @@ nav{
         bottom: 10px;
         left: 0;
         right: 100%;
-        margin: 0 10px;
+        margin: 0 12px;
         border-bottom: 2px solid black;
         transition: right .5s;
     }
     &:hover::after{
         right: 0;
+    }
+    .undrline_active{
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        left: 100%;
+        right: 100%;
+        margin: 0 10px;
+        border-bottom: 2px solid black;
+        transition: right .5s;
     }
 }
 .icon_menu{
@@ -231,16 +283,15 @@ main{
     margin: auto;
     background: $backgr_base;  
 }
+
 .opening_view{
-    background: url(./images/img_template.jpg); 
     margin-top: 60px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
     max-height: 1400px;
  }
- 
  .img_container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -265,9 +316,11 @@ main{
     position: absolute;
     top: 0;
     width: 100%;
+    max-width: 503px;
     align-items: center;
     justify-content: center;
     height: 100%;
+    max-height: 300px;
     color: rgb(32, 9, 9);
     background: #3836367d;
     opacity: 0;
@@ -284,17 +337,18 @@ main{
     align-items: center;
     padding: 70px 0 0;
 }
-.input_cont{
-    display: flex;
-     justify-content: center;
+.input_mail_cont{
+    display: inline-block;
      padding-bottom: 75px;
 }
 button{
     border: none;
 }
 
-.input_email{
+.input_mail{
+height: 40px;
     width: 250px;
+
 }
 // Footer************************************
 footer{
@@ -304,21 +358,7 @@ footer{
     height: 150px;
     background: $backgr_accent;
 }
-//Media**************************************
-@media screen and (max-width: 790px ) {
-    .img_container{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .img_prewiev{
-        max-width: 503px;
-    }
-    nav{
-        display: none;
-    }
-    .hiden_menu{
-        display: contents;
-    }
-}
+
 //Mobile nav ************************************
 .small_screen_main{
     display: none;
@@ -390,13 +430,29 @@ footer{
     max-width: 1060px;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
 .name_mail{
     display: flex;
-    justify-content: space-between;
+}
+.input_name, .input_email{
+    width: 100%;
+    min-width: 242.5px;
+}
+.input_name{
+    margin-right: 10px;
 }
 .input_area{
-    width: 50%;
+    width: 100%;
+    height: 40px;
+    margin: 8px 0 30px;
+}
+.input_lable{
+    font-family: $font_bold;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $text_color_body;
 }
 form{
     display: flex;
@@ -406,4 +462,50 @@ form{
 textarea{
  width: 100%;
  min-width: 495px;
+ margin: 8px 0 30px;
+}
+.portret{
+    height: 400px;
+}
+.about_cont{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 75px;
+    align-items: center;
+}
+.about_descr{
+    max-width: 565px;
+    min-width: 385px;
+    padding: 30px 60px 30px 0;
+}
+//Media**************************************
+@media screen and (max-width: 790px ) {
+    .img_container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .img_prewiev{
+        max-width: 503px;
+    }
+    nav{
+        display: none;
+    }
+    .hiden_menu{
+        display: contents;
+    }
+}
+@media screen and (max-width: 620px ) {
+    .name_mail{
+        display: block;
+    }
+    textarea{
+        min-width: 242.5px;
+       }
+    .describe{
+        min-width: 242.5px;
+    }
+}
+@media screen and (max-width: 1007px ){
+    .about_descr{
+        padding: 30px 60px 30px 60px;
+    }
 }

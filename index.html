@@ -12,7 +12,10 @@
             <nav>
                 <a class="btn_nav underline" href="./index.html">Home</a>
                 <div class="dropdown">
-                    <a class="btn_nav underline_shop btn_drop" href="./shop.html">Shop</a>
+                    <div class="drop_active_cont">
+                        <a href="#" class="btn_drop__active" >Shop</a>
+                    </div>
+                    <a class="underline_shop btn_drop" href="./shop.html">Shop</a>
                     <div class="drop_box">
                         <a href="#" class="drop_content">original paintings</a>
                         <a href="#" class="drop_content">prints</a>
@@ -80,7 +83,9 @@
     </div>
 </header>
 <main>
-    <div class="opening_view"></div>
+    <div>
+        <img class="opening_view" src="./images/img_template.jpg" alt="">
+    </div>
     <section class="gallery">
         <div class="center">
             <h1>Gallery</h1>
@@ -151,8 +156,8 @@
             <p class="p_update">
                 Subscribe to my newsletter to never miss an update !
             </p>
-            <form class="input_cont" action="">
-                <input class="input_email" type="email" placeholder="Enter your email">
+            <form class="input_mail_cont" action="">
+                <input class="input_mail" type="email" placeholder="Enter your email">
                 <button type="submit" class="btn_accent">subscribe</button>
             </form>
         </div>
