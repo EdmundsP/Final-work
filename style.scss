@@ -65,6 +65,7 @@ section{
    margin: auto;
     padding: 0 40px;
     max-width: 1500px; 
+    min-height: 1000px;
 }
 .center{
     display: flex;
@@ -288,9 +289,9 @@ main{
     margin-top: 60px;
     display: flex;
     justify-content: center;
-    width: 100%;
+    max-width: 1800px;
     height: auto;
-    max-height: 1400px;
+    //max-height: 1400px;
  }
  .img_container{
     display: grid;
@@ -324,6 +325,21 @@ main{
     color: rgb(32, 9, 9);
     background: #3836367d;
     opacity: 0;
+    &__no_hov{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        max-width: 503px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        max-height: 300px;
+        color: rgb(32, 9, 9);
+        background: #3836367d;
+        opacity: 1;
+    }
     &:hover{
         opacity: 1;
         transition-duration: 0.4s;
@@ -478,6 +494,18 @@ textarea{
     min-width: 385px;
     padding: 30px 60px 30px 0;
 }
+//SHOP page*********************************
+.shop_cont{
+    position: relative;
+    width: 100%;
+    padding-top: 120px;
+    display: flex;
+    justify-content: space-around;
+   
+}
+.prew_link{
+    max-width: 503px;
+}
 //Media**************************************
 @media screen and (max-width: 790px ) {
     .img_container{
@@ -489,7 +517,7 @@ textarea{
     nav{
         display: none;
     }
-    .hiden_menu{
+    .hiden_menu, .shop_cont{
         display: contents;
     }
 }
