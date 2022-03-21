@@ -5,8 +5,23 @@ let drop_active_cont = document.querySelector('.drop_active_cont')
 let underline_shop = document.querySelector('.underline_shop')
 let btn_drop = document.querySelector('.btn_drop')
 let drop_box = document.querySelector('.drop_box')
+let drop_box_mob = document.querySelector('.drop_box_mob')
+let icon_open = document.querySelector('.icon_open')
 //let drop_content = document.querySelector('.drop_content')
 
+
+//drop box mob opens on hover
+ icon_open.onmouseover = function(event){
+    event.target.classList.contains('drop_box_mob')
+    drop_box_mob.style.display ='flex'
+}
+drop_box_mob.onmouseleave = function(event){
+    event.target.classList.contains('drop_box_mob')
+    drop_box_mob.style.display ='none'
+
+}
+
+// dropdown menu on fule screen
 dropdown.onmouseover = function(event){
     event.target.classList.contains('btn_drop')
     drop_box.style.display ='flex'

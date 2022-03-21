@@ -80,6 +80,13 @@ section{
     margin-bottom: 65px;
     min-width: 242.5px;
 }
+.center__no_mr{
+    display: flex;
+    justify-content: center;
+    padding:0 0 50px;
+}
+
+
 //header****************************
 .header_container{
     background: $backgr_accent;
@@ -194,6 +201,7 @@ nav{
     color: $text_color_body;
     background: $backgr_base;
     cursor: pointer;
+    transition: 0.6s ease;
     &:hover{
         background: $backgr_hover;
     }
@@ -211,8 +219,19 @@ nav{
     background: #fff;
     width: 150px;
     margin-left: 5px;
-    top: 33px;
+    top: 35px;
+    box-shadow: 0 10px 10px #666;
 }
+.drop_box_mob{
+    display: none;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 5px 5px #666;
+}
+
 
 .underline{
     display:inline-block;
@@ -286,12 +305,9 @@ main{
 }
 
 .opening_view{
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
     max-width: 1800px;
+    min-width: 250px;
     height: auto;
-    //max-height: 1400px;
  }
  .img_container{
     display: grid;
@@ -386,8 +402,8 @@ footer{
     position: fixed;
     top: 0;
     background: #e6e6e663;
-    transition: right .5s;
-    //transition-duration: 0.4s;
+    //transition: right .5s;
+    transition-duration: 4s;
     transition-timing-function: ease-out;
 }
 .drawer_block{
@@ -520,6 +536,15 @@ textarea{
     .hiden_menu, .shop_cont{
         display: contents;
     }
+    .center{
+        margin: 0;
+        padding-top: 30px;
+    }
+    .gallery{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 @media screen and (max-width: 620px ) {
     .name_mail{
@@ -530,6 +555,12 @@ textarea{
        }
     .describe{
         min-width: 242.5px;
+    }
+    .input_mail_cont{
+        display: flex;
+    }
+    .btn_mr{
+        margin-top: 5px;
     }
 }
 @media screen and (max-width: 1007px ){
