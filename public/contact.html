@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Prata&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<header>
+    <div class="header_container">
+        <div class="site_header">
+            <div class="logo"></div>
+            <nav>
+                <a class="btn_nav underline" href="./index.html">Home</a>
+                <div class="dropdown">
+                    <div class="drop_active_cont">
+                        <a href="#" class="btn_drop__active" >Shop</a>
+                    </div>
+                    <a class="underline_shop btn_drop" href="./shop.html">Shop</a>
+                    <div class="drop_box">
+                        <a href="#" class="drop_content">original paintings</a>
+                        <a href="#" class="drop_content">prints</a>
+                    </div>
+                </div>
+                <a class="btn_nav underline" href="./about.html">About</a>
+                <a class="btn_nav underline" href="./contact.html">Contact</a>
+            </nav>
+            <div class="icon_menu">
+ <!--Search exend-->
+                <div class="search_expend">
+                    <a class="icon search__dark" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </a>
+                    <input class="nav_input" type="text" placeholder="Search our store">
+                    <a class="icon close__dark" href="#">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black" >
+                            <title>x</title>
+                            <path d="M5.293 6.707l5.293 5.293-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l5.293-5.293 5.293 5.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414l-5.293-5.293 5.293-5.293c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
+                            </svg>
+                    </a>
+                </div>
+                <a class="icon search" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="#" class="icon hiden_menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-left"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg>
+                </a>
+                <a class="icon cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+<!--mobile nav smaller then 790px-->
+    <div class="small_screen_main">
+        <div class="drawer_block">
+            <div class="mobile_nav__header">
+                <a class="icon close" href="#">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" >
+                        <title>x</title>
+                        <path d="M5.293 6.707l5.293 5.293-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l5.293-5.293 5.293 5.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414l-5.293-5.293 5.293-5.293c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
+                        </svg>
+                </a>
+            </div>
+            <ul class="mobile_nav">
+                <li class="mobile_nav__item">
+                    <a class="btn__mobile" href="./index.html">home</a>
+                </li>
+                <li class="mobile_nav__item drow">
+                    <a class="btn__mobile" href="./shop.html">shop</a>
+                    <a class="icon_open" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                </li>
+                <div class="drop_box_mob">
+                    <a href="#" class="drop_content">original paintings</a>
+                    <a href="#" class="drop_content">prints</a>
+                </div>
+                <li class="mobile_nav__item">
+                    <a class="btn__mobile" href="./about.html">about</a>
+                </li>
+                <li class="mobile_nav__item">
+                    <a class="btn__mobile" href="./contact.html">contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="center">
+        <h1>contact</h1>
+    </div>
+    <div class="describe">
+        <p class="p_update">
+            Hi! Feel free to reach out to ask any questions or let us know if you have any issues. We will reply in a timely manner of 1-3 business days. Thank you!
+        </p>
+    </div>
+    
+    <div class="input_cont">
+        <p id="message"></p>
+        <form action="api.php?name=contact">
+            <div class="name_mail">
+                <div class="input_name">               
+                    <label class="input_lable" for="subscription_name">name</label>
+                    <input class="input_area" type="text" id="subscription_name" name="name">
+                </div>
+                <div class="input_email">              
+                    <label class="input_lable" for="subscription_email">email</label>
+                    <input class="input_area" type="email" id="subscription_email" name="email">               
+                </div>
+            </div>
+            <div>            
+                <label class="input_lable" for="input_message">message</label>
+                <textarea class="input_message" name="message" rows="10" id="input_message"></textarea>            
+            </div>
+
+            <div class="center_simpel form_check">
+                <div>
+                    <input type="checkbox" class="form-check-input" id="subscription_check">
+                    <label class="form-check-label" for="subscription_check">agree with Privacy Policy</label>
+                </div>
+                <p class="p_alert" id="alert"></p>
+            </div>
+
+            <div class="center_simpel">
+                <button type="submit" class="btn_accent send">send</button>
+            </div>
+
+        </form>
+
+        <div class="center_simpel">
+            <svg class="insta" version="1.1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
+                <title></title>
+                <g id="icomoon-ignore">
+                </g>
+                <path d="M256 46.1c68.4 0 76.5 0.3 103.4 1.5 25 1.1 38.5 5.3 47.5 8.8 11.9 4.6 20.5 10.2 29.4 19.1 9 9 14.5 17.5 19.2 29.4 3.5 9 7.7 22.6 8.8 47.5 1.2 27 1.5 35.1 1.5 103.4s-0.3 76.5-1.5 103.4c-1.1 25-5.3 38.5-8.8 47.5-4.6 11.9-10.2 20.5-19.1 29.4-9 9-17.5 14.5-29.4 19.2-9 3.5-22.6 7.7-47.5 8.8-27 1.2-35.1 1.5-103.4 1.5s-76.5-0.3-103.4-1.5c-25-1.1-38.5-5.3-47.5-8.8-11.9-4.6-20.5-10.2-29.4-19.1-9-9-14.5-17.5-19.2-29.4-3.5-9-7.7-22.6-8.8-47.5-1.2-27-1.5-35.1-1.5-103.4s0.3-76.5 1.5-103.4c1.1-25 5.3-38.5 8.8-47.5 4.6-11.9 10.2-20.5 19.1-29.4 9-9 17.5-14.5 29.4-19.2 9-3.5 22.6-7.7 47.5-8.8 26.9-1.2 35-1.5 103.4-1.5zM256 0c-69.5 0-78.2 0.3-105.5 1.5-27.2 1.2-45.9 5.6-62.1 11.9-16.9 6.6-31.2 15.3-45.4 29.6-14.3 14.2-23 28.5-29.6 45.3-6.3 16.3-10.7 34.9-11.9 62.1-1.2 27.4-1.5 36.1-1.5 105.6s0.3 78.2 1.5 105.5c1.2 27.2 5.6 45.9 11.9 62.1 6.6 16.9 15.3 31.2 29.6 45.4 14.2 14.2 28.5 23 45.3 29.5 16.3 6.3 34.9 10.7 62.1 11.9 27.3 1.2 36 1.5 105.5 1.5s78.2-0.3 105.5-1.5c27.2-1.2 45.9-5.6 62.1-11.9 16.8-6.5 31.1-15.3 45.3-29.5s23-28.5 29.5-45.3c6.3-16.3 10.7-34.9 11.9-62.1 1.2-27.3 1.5-36 1.5-105.5s-0.3-78.2-1.5-105.5c-1.2-27.2-5.6-45.9-11.9-62.1-6.3-17-15-31.3-29.3-45.5-14.2-14.2-28.5-23-45.3-29.5-16.3-6.3-34.9-10.7-62.1-11.9-27.4-1.3-36.1-1.6-105.6-1.6v0z"></path>
+                <path d="M256 124.5c-72.6 0-131.5 58.9-131.5 131.5s58.9 131.5 131.5 131.5 131.5-58.9 131.5-131.5c0-72.6-58.9-131.5-131.5-131.5zM256 341.3c-47.1 0-85.3-38.2-85.3-85.3s38.2-85.3 85.3-85.3c47.1 0 85.3 38.2 85.3 85.3s-38.2 85.3-85.3 85.3z"></path>
+                <path d="M423.4 119.3c0 16.955-13.745 30.7-30.7 30.7s-30.7-13.745-30.7-30.7c0-16.955 13.745-30.7 30.7-30.7s30.7 13.745 30.7 30.7z"></path>
+            </svg>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="center">
+        <table id="contact_list">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th></th>
+            </tr>
+        </table>
+        
+    </div>
+</section>
+<footer>
+    <p>
+        © 2022 All Rights Reserved
+    </p>
+</footer>
+
+
+<script src="Request.js"></script>
+<script src="script.js"></script>
+
