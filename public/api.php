@@ -4,6 +4,7 @@ define('PRIVATE_DIR', __DIR__ . '/../private/');
 include PRIVATE_DIR . 'bootstrap.php';
 
 use Database\Contact;
+use Database\Subscribers;
 
 header('Content-type: application/json');
 
@@ -11,6 +12,24 @@ $output = ['status' => false];
 
 if (isset($_GET['name']) && is_string($_GET['name'])) {
     switch ($_GET['name']) {
+        case 'subscribers':
+            if (isset($_POST['email']) && is_string($_POST['email'])) {
+                $subscribers = new Subscribers();
+                $entity = ['email' => $_POST['email']];
+                $entity = $subscribers->addEntity($entity);
+                if(is_array($entity)) {
+                    $output['status'] = true;
+                    $output['entity'] = $entity;
+                    $output['notice'] = 'New Entry added';
+                }
+                else{
+                    $output['notice'] = 'There is an error!';
+                    if(DEBUG_MODE){
+                        $output['notice'] .= ' '. $subscribers->getError();
+                    }
+                } 
+            }
+            break;
         case 'contact':
             if (
                 isset($_POST['name']) && is_string($_POST['name']) &&
@@ -38,12 +57,33 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
                     }
                 } 
             }
+        break;
 
+        case 'getSubscribers':
+            $output['status'] = true;
+            $subscribers = new Subscribers();
+            $output['subscribers'] = $subscribers->getAll();
             break;
         case 'getContact':
             $output['status'] = true;
             $contact = new Contact();
             $output['contact'] = $contact->getAll();
+            break;
+
+        case 'delete':
+            if (
+                isset($_POST['id']) && is_string($_POST['id'])   
+            ) {
+                $id = (int) $_POST['id'];
+                $subscribers = new Subscribers();
+                if ($subscribers->delete($id)) {
+                    $output['status'] = true;
+                    $output['notice'] = "element $id deleted";
+                }
+                else{
+                    $output['notice'] = "Deletion failed";
+                }          
+            }
             break;
         case 'delete':
             if (

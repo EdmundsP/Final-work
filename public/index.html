@@ -87,7 +87,7 @@
 </header>
 <main>
     <div class="center__no_mr">
-        <img class="opening_view" src="../images/img_template.jpg" alt="">
+        <img class="opening_view" src="./images/img_template.jpg" alt="">
     </div>
     <section class="gallery">
         <div class="center">
@@ -96,7 +96,7 @@
         <div class="img_container">
             <div class="img_box">
                 <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="../images/Darbi (1 of 6).jpg" alt="">
+                    <img class="img_prewiev" src="./images/Darbi (1 of 6).jpg" alt="">
                     <div class="img_info">
                         <h3>title</h3>
                         <p>50cm by 70cm acrylic</p>
@@ -105,7 +105,7 @@
             </div>
             <div class="img_box">
                 <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="../images/Darbi (2 of 6).jpg" alt="">
+                    <img class="img_prewiev" src="./images/Darbi (2 of 6).jpg" alt="">
                     <div class="img_info">
                         <h3>title</h3>
                         <p>50cm by 70cm acrylic</p>
@@ -114,7 +114,7 @@
             </div>
             <div class="img_box">
                 <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="../images/Darbi (3 of 6).jpg" alt="">
+                    <img class="img_prewiev" src="./images/Darbi (3 of 6).jpg" alt="">
                     <div class="img_info">
                         <h3>title</h3>
                         <p>50cm by 70cm acrylic</p>
@@ -123,7 +123,7 @@
             </div>
             <div class="img_box">
                 <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="../images/Darbi (4 of 6).jpg" alt="">
+                    <img class="img_prewiev" src="./images/Darbi (4 of 6).jpg" alt="">
                     <div class="img_info">
                         <h3>title</h3>
                         <p>50cm by 70cm acrylic</p>
@@ -132,7 +132,7 @@
             </div>
             <div class="img_box">    
                 <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="../images/Darbi (5 of 6).jpg" alt="">
+                    <img class="img_prewiev" src="./images/Darbi (5 of 6).jpg" alt="">
                     <div class="img_info">
                         <h3>title</h3>
                         <p>50cm by 70cm acrylic</p>
@@ -141,7 +141,7 @@
             </div>
             <div class="img_box">
                 <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="../images/Darbi (6 of 6).jpg" alt="">
+                    <img class="img_prewiev" src="./images/Darbi (6 of 6).jpg" alt="">
                     <div class="img_info">
                         <h3>title</h3>
                         <p>50cm by 70cm acrylic</p>
@@ -159,12 +159,22 @@
             <p class="p_update">
                 Subscribe to my newsletter to never miss an update !
             </p>
-            <form class="input_mail_cont" action="">
-                <input class="input_mail" type="email" placeholder="Enter your email">
+            <form class="input_mail_cont" action="api.php?name=subscribers">
+                <input class="input_mail" type="email" id="subscription_email" placeholder="Enter your email">
                 <button type="submit" class="btn_accent btn_mr">subscribe</button>
             </form>
         </div>
-    </section>   
+    </section>
+    <section>
+        <div class="center">
+            <table id="subscribe_list">
+                <tr>
+                    <th>Email</th>
+                </tr>
+            </table>
+            
+        </div>
+    </section>
 </main>
 <footer>
     <p>
