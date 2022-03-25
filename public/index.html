@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Prata&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="Request.js"></script>
 
 <header>
     <div class="header_container">
@@ -17,8 +20,8 @@
                     </div>
                     <a class="underline_shop btn_drop" href="./shop.html">Shop</a>
                     <div class="drop_box">
-                        <a href="#" class="drop_content">original paintings</a>
-                        <a href="#" class="drop_content">prints</a>
+                        <a href="./original_paintings.html" class="drop_content">original paintings</a>
+                        <a href="./prints.html" class="drop_content">prints</a>
                     </div>
                 </div>
                 <a class="btn_nav underline" href="./about.html">About</a>
@@ -72,8 +75,8 @@
                     </a>
                 </li>
                 <div class="drop_box_mob">
-                    <a href="#" class="drop_content">original paintings</a>
-                    <a href="#" class="drop_content">prints</a>
+                    <a href="./original_paintings.html" class="drop_content">original paintings</a>
+                    <a href="./prints.html" class="drop_content">prints</a>
                 </div>
                 <li class="mobile_nav__item">
                     <a class="btn__mobile" href="./about.html">about</a>
@@ -159,8 +162,8 @@
             <p class="p_update">
                 Subscribe to my newsletter to never miss an update !
             </p>
-            <form class="input_mail_cont" action="api.php?name=subscribers">
-                <input class="input_mail" type="email" id="subscription_email" placeholder="Enter your email">
+            <form class="input_mail_cont" action="api.php?name=subscribers" method="post">
+                <input class="input_mail" type="email" name="email" id="subscription_email" placeholder="Enter your email">
                 <button type="submit" class="btn_accent btn_mr">subscribe</button>
             </form>
         </div>
@@ -170,6 +173,7 @@
             <table id="subscribe_list">
                 <tr>
                     <th>Email</th>
+                    <th></th>
                 </tr>
             </table>
             
@@ -184,7 +188,8 @@
 
 
 
-<script src="Request.js"></script>
+
+<script src="subscribers.js"></script>
 <script src="script.js"></script>
 
 

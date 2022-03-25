@@ -40,6 +40,14 @@ h3{
     text-transform: uppercase;
     color: $text_color_accent;
 }
+.h3_darck{
+    font-family: $font_regular;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    color: $text_color_body;
+}
 p{
     font-family: $font_regular;
     font-size: 10px;
@@ -94,7 +102,9 @@ section{
     justify-content: center;
     padding:0 0 50px;
 }
-
+.displ_block{
+    display: block;
+}
 
 //header****************************
 .header_container{
@@ -515,16 +525,20 @@ textarea{
 #alert{
     height: 15px;
 }
-#contact_list{
+#contact_list,
+#subscribe_list{
     padding: 30px;
     margin: 20px auto;
 }
 #contact_list th,
-#contact_list td{
+#contact_list td,
+#subscribe_list th,
+#subscribe_list td {
     padding: 10px 4px;
     border: #000 1px solid;
 }
-#contact_list th{
+#contact_list th,
+#subscribe_list th{
     background: $backgr_accent;
 }
 //About page**********************************
@@ -554,6 +568,28 @@ textarea{
 .prew_link{
     max-width: 503px;
 }
+// Originas paintings and prints pages********************
+.quick_view{
+    position: absolute;
+    bottom: 105px;
+    left: 9px;
+    display: flex;
+    z-index: -1;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 95%;
+    margin: auto;
+    background: $backgr_accent;
+    color: $text_color_accent;
+}
+
+.quick:hover{   
+    .quick_view{
+        z-index: 1;
+    }   
+}
+
 
 //Media**************************************
 @media screen and (max-width: 790px ) {

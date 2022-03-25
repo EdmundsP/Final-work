@@ -1,7 +1,4 @@
 
-
-
-
 //1.Dropdown menu ********************************
 let dropdown = document.querySelector('.dropdown')
 let drop_active_cont = document.querySelector('.drop_active_cont')
@@ -69,35 +66,3 @@ search_close.onclick = function(event){
 }
 
 
-
-const req = new Request()
-
-req.get('api.php?name=getSubscribers', function(response){
-    for(let subscriber of response.subscribers){ 
-        printSubscriber(subscriber)
-    }
-})
-
-document.querySelector('form').onsubmit = function(event){
-    event.preventDefault()
-        const url = this.getAttribute('action')
-        let form = this
-        req.post(url, new FormData(this), function(response){
-            if (response.hasOwnProperty('entity')) {
-                printSubscriber(response.entity)
-                for (let input of form.querySelectorAll('input')) {
-                    input.value = '';
-                }
-            } 
-        })
-}
-
-function printSubscriber(subscriber) {
-    const row = document.createElement('tr')
-
-    cell = document.createElement('td')
-        cell.textContent = subscriber.email
-        row.append(cell)
-
-    document.querySelector('#subscribe_list tbody').append(row)
-}

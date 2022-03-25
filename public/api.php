@@ -30,6 +30,7 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
                 } 
             }
             break;
+
         case 'contact':
             if (
                 isset($_POST['name']) && is_string($_POST['name']) &&
@@ -64,27 +65,14 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
             $subscribers = new Subscribers();
             $output['subscribers'] = $subscribers->getAll();
             break;
+
         case 'getContact':
             $output['status'] = true;
             $contact = new Contact();
             $output['contact'] = $contact->getAll();
             break;
 
-        case 'delete':
-            if (
-                isset($_POST['id']) && is_string($_POST['id'])   
-            ) {
-                $id = (int) $_POST['id'];
-                $subscribers = new Subscribers();
-                if ($subscribers->delete($id)) {
-                    $output['status'] = true;
-                    $output['notice'] = "element $id deleted";
-                }
-                else{
-                    $output['notice'] = "Deletion failed";
-                }          
-            }
-            break;
+       
         case 'delete':
             if (
                 isset($_POST['id']) && is_string($_POST['id'])   
@@ -101,6 +89,21 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
                 
             }
             break;
+            case 'delete_subscriber':
+                if (
+                    isset($_POST['id']) && is_string($_POST['id'])   
+                ) {
+                    $id = (int) $_POST['id'];
+                    $subscribers = new Subscribers();
+                    if ($subscribers->delete($id)) {
+                        $output['status'] = true;
+                        $output['notice'] = "element $id deleted";
+                    }
+                    else{
+                        $output['notice'] = "Deletion failed";
+                    }          
+                }
+                break;
         }
     }
     

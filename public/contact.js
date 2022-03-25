@@ -35,7 +35,7 @@ function printContact(contactor) {
     const row = document.createElement('tr')
     const delete_btn = document.createElement('a')
     delete_btn.setAttribute('href', 'api.php?name=delete')
-    delete_btn.classList.add('delete')
+    delete_btn.classList.add('btn_accent', 'displ_block')
     delete_btn.textContent = 'delete'
     delete_btn.dataset.id = contactor.id
     delete_btn.onclick = deleteHandler
@@ -52,7 +52,7 @@ function printContact(contactor) {
         cell.textContent = contactor.message
         row.append(cell)
 
-        cell = document.createElement('td')
+        cell = document.createElement('span')
         cell.append(delete_btn)
         row.append(cell)
 
