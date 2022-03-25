@@ -1,8 +1,8 @@
 const req = new Request()
 
 req.get('api.php?name=getContact', function(response){
-    for(let contactor of response.contact){ 
-        printContact(contactor)
+    for(let connection of response.contact){ 
+        printContact(connection)
     }
 })
 
@@ -31,25 +31,25 @@ document.querySelector('form').onsubmit = function(event){
     }
 }
 
-function printContact(contactor) {
+function printContact(connection) {
     const row = document.createElement('tr')
     const delete_btn = document.createElement('a')
     delete_btn.setAttribute('href', 'api.php?name=delete')
     delete_btn.classList.add('btn_accent', 'displ_block')
     delete_btn.textContent = 'delete'
-    delete_btn.dataset.id = contactor.id
+    delete_btn.dataset.id = connection.id
     delete_btn.onclick = deleteHandler
 
         let cell = document.createElement('td')
-        cell.textContent = contactor.name
+        cell.textContent = connection.name
         row.append(cell)
 
         cell = document.createElement('td')
-        cell.textContent = contactor.email
+        cell.textContent = connection.email
         row.append(cell)
 
         cell = document.createElement('td')
-        cell.textContent = contactor.message
+        cell.textContent = connection.message
         row.append(cell)
 
         cell = document.createElement('span')

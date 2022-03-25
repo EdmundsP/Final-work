@@ -573,8 +573,7 @@ textarea{
     position: absolute;
     bottom: 105px;
     left: 9px;
-    display: flex;
-    z-index: -1;
+    display: none;
     justify-content: center;
     align-items: center;
     height: 40px;
@@ -586,7 +585,9 @@ textarea{
 
 .quick:hover{   
     .quick_view{
-        z-index: 1;
+        display: flex;
+        transition-duration: 0.4s;
+        transition-timing-function: ease-out;
     }   
 }
 
