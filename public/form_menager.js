@@ -92,8 +92,7 @@ Subscribers:{
                 printSubscriber(subscriber)
             }
         })
-    }
-    
+    } 
     
     const SubscribersSubmitHandler = document.querySelector('form')
     if (SubscribersSubmitHandler != null){
@@ -135,8 +134,7 @@ Subscribers:{
             subscribe_list.append(row)
         }
     }
-    
-    
+       
     function deleteHandler(event) {
         event.preventDefault()
         const url = this.getAttribute('href')
