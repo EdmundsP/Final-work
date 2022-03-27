@@ -10,9 +10,9 @@ if(subscribe_list != null){
 }
 
 
-const formSubmitHandler = document.querySelector('form')
-if (formSubmitHandler != null){
-    formSubmitHandler.onsubmit = function (event){
+const SubscribersSubmitHandler = document.querySelector('form')
+if (SubscribersSubmitHandler != null){
+    SubscribersSubmitHandler.onsubmit = function (event){
         event.preventDefault()
             const url = this.getAttribute('action')//action="api.php?name=subscribers"
             let form = this
