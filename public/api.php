@@ -1,6 +1,6 @@
 <?php
-define('PRIVATE_DIR', __DIR__ . '/../private/');
 
+define('PRIVATE_DIR', __DIR__ . '/../private/');
 include PRIVATE_DIR . 'bootstrap.php';
 
 use Database\Contact;

@@ -88,104 +88,55 @@
         </div>
     </div>
 </header>
-<main>
-    <div class="center__no_mr">
-        <img class="opening_view" src="./images/img_template.jpg" alt="">
+<section>
+    <div class="center">
+        <table id="contact_list">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th></th>
+            </tr>
+        </table>   
     </div>
-    <section class="gallery">
-        <div class="center">
-            <h1>Gallery</h1>
-        </div>
-        <div class="img_container">
-            <div class="img_box">
-                <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="./images/Darbi (1 of 6).jpg" alt="">
-                    <div class="img_info">
-                        <h3>title</h3>
-                        <p>50cm by 70cm acrylic</p>
-                    </div>
-                </a>
-            </div>
-            <div class="img_box">
-                <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="./images/Darbi (2 of 6).jpg" alt="">
-                    <div class="img_info">
-                        <h3>title</h3>
-                        <p>50cm by 70cm acrylic</p>
-                    </div>
-                </a>
-            </div>
-            <div class="img_box">
-                <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="./images/Darbi (3 of 6).jpg" alt="">
-                    <div class="img_info">
-                        <h3>title</h3>
-                        <p>50cm by 70cm acrylic</p>
-                    </div>
-                </a>
-            </div>
-            <div class="img_box">
-                <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="./images/Darbi (4 of 6).jpg" alt="">
-                    <div class="img_info">
-                        <h3>title</h3>
-                        <p>50cm by 70cm acrylic</p>
-                    </div>
-                </a>
-            </div>
-            <div class="img_box">    
-                <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="./images/Darbi (5 of 6).jpg" alt="">
-                    <div class="img_info">
-                        <h3>title</h3>
-                        <p>50cm by 70cm acrylic</p>
-                    </div>
-                </a>
-            </div>
-            <div class="img_box">
-                <a class="img_link" href="./gallery.html">
-                    <img class="img_prewiev" src="./images/Darbi (6 of 6).jpg" alt="">
-                    <div class="img_info">
-                        <h3>title</h3>
-                        <p>50cm by 70cm acrylic</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="center">
-            <a class="btn_accent" href="./shop.html">shop now</a>
-        </div>
-        <div class="sign_up_cont">
-            <h2>sign up now</h2>
-            <p class="p_update">
-                Subscribe to my newsletter to never miss an update !
-            </p>
-            <form class="input_mail_cont" action="api.php?name=subscribers" method="post">
-                <input class="input_mail" type="email" name="email" id="subscription_email" placeholder="Enter your email">
-                <button type="submit" class="btn_accent btn_mr">subscribe</button>
-            </form>
-        </div>
-    </section>
-    
-</main>
+    <div class="center">
+        <table id="subscribe_list">
+            <tr>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </table>  
+    </div>
+</section>
 <footer>
     <p>
         © 2022 All Rights Reserved
     </p>
 </footer>
 
-
 <!-- <script src="form_input.js"></script> -->
-
 <script src="subscribers.js"></script>
+<!-- <script src="contact.js"></script> -->
+
 <script src="script.js"></script>
 
 <!-- <script>
     document.addEventListener("DOMContentLoader", function(event) {
-        document.querySelector('form').onsubmit = submitHandler
+        document.querySelector('#subscribe_list tbody').append(row)
     })
 </script> -->
 
+/*  
+1. Forma caur kuru var pievienot bildes un to aprakstu 
+2. Saņemt un dzēst ziņas no CONTACT formas sadaļas
+    * PROBLĒMAS
+        1 Izvadās tikai pirmais .js script fails - ielādējas tikai viena tabula.
+        2 Submitojot jaunu vērtību netiek izpildīta komanda izdzēst input saturu.
+    * IDEJAS 
+        1   * Apvienot subscriber.js un contact.js failus ---- Nestrādā tāpat izvada tikai pirmo req uz api adresi
+            * Izveidot ciklu apvienotajā failā 
+        2 .js kodos jāpieraksta papildus loģika atbildei no severa
 
+3. Saņemt un dzēst ziņas no SUBSCRIBE formas sadaļas
+4. ADMIN sadaļai jābūt privātai
+*/
