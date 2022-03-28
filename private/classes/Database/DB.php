@@ -4,7 +4,7 @@ namespace Database;
 
 class DB
 {
-    private $conn;
+        private $conn;
     private $last_sql = '';
     public function __construct() {
         $this->conn = new \mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -15,6 +15,13 @@ class DB
 
     public function __destruct() {
         $this->conn->close();
+    }
+
+    protected function getById(int $id, string $table_name){
+        $this->last_sql = "SELECT * FROM $table_name WHERE id=$id";
+        $result = $this->conn->query($this->last_sql);
+
+        return $result->fetch_assoc();
     }
 
     protected function selectAll($table_name) {
@@ -38,7 +45,7 @@ class DB
         $this->last_sql = "INSERT INTO $table_name ($column_str) VALUES ($value_str)";
 
 
-          if ($this->conn->query($this->last_sql)) {
+        if ($this->conn->query($this->last_sql)) {
             $entity['id'] = $this->conn->insert_id;
             return $entity;
         }
@@ -59,6 +66,7 @@ class DB
     public function getError() {
         return $this->conn->error. PHP_EOL . 'SQL:' . $this->last_sql;
     }
+    
 
 
 

@@ -90,6 +90,66 @@
 </header>
 <section>
     <div class="center">
+        <h2>Add new image</h2>
+    </div>
+    <div class="center__no_mr">
+        <div class="input_cont">
+            <form action="Uploads.php" method="post" enctype="multipart/form-data">
+                <input id="fileToUpload" type="file" name="fileToUpload">
+                <span class="center_simpel">
+                    <img class="img_prewiev__sm" src="" alt="">
+                </span>
+                <span class="center_simpel">
+                    <button type="submit" class="btn_accent send">upload</button>
+                </span>
+                
+            </form>
+            <form id="img_data" action="api.php?name=ImageData" method="post" >
+                <div>              
+                    <label class="input_lable" for="image">image</label>
+                    <input class="input_area" type="text" id="image" name="image" placeholder="Image path">               
+                </div>
+                <div>              
+                    <label class="input_lable" for="image_title">title</label>
+                    <input class="input_area" type="text" id="image_title" name="title" placeholder="Painting title">               
+                </div>
+
+                <div>              
+                    <label class="input_lable" for="image_short_description">short description</label>
+                    <input class="input_area" type="text" id="image_short_description" name="short_description" placeholder="Size and technique">               
+                </div>
+               
+                <div>            
+                    <label class="input_lable" for="image_description">image description</label>
+                    <textarea class="input_message" name="description" rows="10" id="image_description"placeholder="Tell us about the painting"></textarea>            
+                </div>
+                <div class="center_simpel">
+                    <button type="submit" class="btn_accent send">add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="center__no_mr">
+        <table id="image_list">
+            <tr>
+                <th>ID</th>
+                <th>IMG path</th>
+                <th>Title</th>
+                <th>Short description</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </table>   
+    </div>
+    <hr>
+</section>
+
+<section>
+    <div class="center__no_mr">
+        <h2>mesages from clinents</h2>
+    </div>
+    <div class="center__no_mr">
         <table id="contact_list">
             <tr>
                 <th>Name</th>
@@ -99,7 +159,11 @@
             </tr>
         </table>   
     </div>
-    <div class="center">
+    <hr>
+    <div class="center__no_mr">
+        <h2>Subscribers list</h2>
+    </div>
+    <div class="center__no_mr">
         <table id="subscribe_list">
             <tr>
                 <th>Email</th>

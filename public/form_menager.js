@@ -148,3 +148,117 @@ Subscribers:{
     }
 }
 
+AddImage: {
+
+    const image_list = document.querySelector('#image_list tbody')
+    if (image_list != null){
+        req.get('api.php?name=getImages', function(response){
+            for(let image_data of response.addImage){ 
+                printImageData(image_data)
+            }
+        })
+    }
+
+
+    const AddImageHandler = document.querySelector('#img_data')
+    if (AddImageHandler != null){
+        AddImageHandler.onsubmit = function (event){
+            event.preventDefault()
+                const url = this.getAttribute('action') //"api.php?name=ImageData"
+                let form = this
+                req.post(url, new FormData(this), function(response){
+                    if (response.hasOwnProperty('entity')) {
+                        printImageData(response.entity)
+                        for (let input of form.querySelectorAll('input')) {
+                            input.value = '';
+                        }
+                        for (let textarea of form.querySelectorAll('textarea')) {
+                            textarea.value = '';
+                        } 
+                    }
+            })
+        }
+    }
+
+    function printImageData(image_data) {
+    
+            if(image_list !=null){
+            
+    
+                const row = document.createElement('tr')
+                const delete_btn = document.createElement('a')
+                delete_btn.setAttribute('href', 'api.php?name=delete_image')
+                delete_btn.classList.add('btn_accent', 'displ_block')
+                delete_btn.textContent = 'delete'
+                delete_btn.dataset.id = image_data.id
+                delete_btn.onclick = deleteHandler
+
+
+                let cell = document.createElement('td')
+                cell.textContent = image_data.id
+                row.append(cell)
+
+                cell = document.createElement('td')
+                cell.textContent = image_data.image
+                row.append(cell)
+
+                cell = document.createElement('td')
+                cell.textContent = image_data.title
+                row.append(cell)
+
+                cell = document.createElement('td')
+                cell.textContent = image_data.short_description
+                row.append(cell)
+
+                cell = document.createElement('td')
+                cell.textContent = image_data.description
+                row.append(cell)
+
+                cell = document.createElement('span')
+                cell.append(delete_btn)
+                row.append(cell)
+
+                image_list.append(row)
+            }
+
+
+            function deleteHandler(event) {
+            event.preventDefault()
+            const url = this.getAttribute('href')
+            const data = new FormData()
+            data.append('id', this.dataset.id)
+            const btn = this
+
+                req.post(url, data, function (response) {
+                    btn.parentNode.parentNode.remove()
+                })  
+            }
+
+
+            if(image_list !=null){
+                
+                document.getElementById('fileToUpload').onchange = function (event){
+                    const file = this.files[0]
+                    const preview = document.querySelector('img')
+                    console.log(this.files[0].name)
+                    const reader = new FileReader()
+                  
+                    reader.addEventListener("load", function () {
+                      preview.src = reader.result
+                    }, false)
+                  
+                    if (file) {
+                      reader.readAsDataURL(file)
+                    }
+                  }
+                  
+
+            }
+
+
+
+        }
+    }
+
+
+

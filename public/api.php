@@ -3,6 +3,7 @@
 define('PRIVATE_DIR', __DIR__ . '/../private/');
 include PRIVATE_DIR . 'bootstrap.php';
 
+use Database\AddImage;
 use Database\Contact;
 use Database\Subscribers;
 
@@ -60,17 +61,54 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
             }
         break;
 
+        case 'ImageData':
+            if (
+                isset($_POST['image']) && is_string($_POST['image']) &&
+                isset($_POST['title']) && is_string($_POST['title']) &&
+                isset($_POST['short_description']) && is_string($_POST['short_description']) &&
+                isset($_POST['description']) && is_string($_POST['description'])
+            ) {
+                $addImage = new AddImage();
+
+                $entity = [
+                    'image' => $_POST['image'],
+                    'title' => $_POST['title'],
+                    'short_description' => $_POST['short_description'],
+                    'description' => $_POST['description']
+                ];
+
+                $entity = $addImage->addEntity($entity);
+                if(is_array($entity)) {
+                    $output['status'] = true;
+                    $output['entity'] = $entity;
+                    $output['notice'] = 'New Entry added';
+                }
+                else{
+                    $output['notice'] = 'There is an error!';
+                    if(DEBUG_MODE){
+                        $output['notice'] .= ' '. $addImage->getError();
+                    }
+                } 
+            }
+        break;
+
         case 'getSubscribers':
             $output['status'] = true;
             $subscribers = new Subscribers();
             $output['subscribers'] = $subscribers->getAll();
-            break;
+        break;
 
         case 'getContact':
             $output['status'] = true;
             $contact = new Contact();
             $output['contact'] = $contact->getAll();
-            break;
+        break;
+
+        case 'getImages':
+            $output['status'] = true;
+            $addImage = new AddImage();
+            $output['addImage'] = $addImage->getAll();
+        break;
 
        
         case 'delete':
@@ -89,6 +127,7 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
                 
             }
             break;
+
             case 'delete_subscriber':
                 if (
                     isset($_POST['id']) && is_string($_POST['id'])   
@@ -103,7 +142,26 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
                         $output['notice'] = "Deletion failed";
                     }          
                 }
-                break;
+            break;
+
+            
+
+            case 'delete_image':
+                if (
+                    isset($_POST['id']) && is_string($_POST['id'])   
+                ) {
+                    $id = (int) $_POST['id'];
+                    $addImage = new AddImage();
+                    if ($addImage->delete($id)) {
+                        $output['status'] = true;
+                        $output['notice'] = "element $id deleted";
+                    }
+                    else{
+                        $output['notice'] = "Deletion failed";
+                    }          
+                }
+            break;
+
         }
     }
     
