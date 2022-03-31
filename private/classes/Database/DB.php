@@ -57,11 +57,22 @@ class DB
         if (
             $this->conn->query($sql) &&
             $this->conn->affected_rows > 0
-        ) {
-            return true;
-        }
+            ) 
         return false;
     }
+    
+    protected function deleteFileFromDir($image, string $table_name) {
+        $this->last_sql = "SELECT * FROM $table_name WHERE id=$image";
+        $file = 'uploads/'. $this->last_sql;
+        if ( 
+            unlink($file)
+            ){
+            return true;
+             }
+        return false;
+    }
+
+
 
     public function getError() {
         return $this->conn->error. PHP_EOL . 'SQL:' . $this->last_sql;

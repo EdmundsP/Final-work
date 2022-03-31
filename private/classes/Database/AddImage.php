@@ -17,14 +17,14 @@ class AddImage extends DB
         return $this->insertEntity($entity, $this->table_name);
     }
 
-    // public function addImage($entity) {
-    //     return $this->insertEntity($entity, $this->table_name);
-    // }
 
     public function delete($id) {
-        return $this->deleteEntityById($id, $this->table_name);
+        return $this->deleteEntityById($id, $this->table_name, );
     }
 
+    public function deleteFile($image) {
+        return $this->deleteFileFromDir($image, $this->table_name, );
+    }
 
 
 }

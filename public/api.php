@@ -148,19 +148,18 @@ if (isset($_GET['name']) && is_string($_GET['name'])) {
 
             case 'delete_image':
                 if (
-                    isset($_POST['id']) && is_string($_POST['id'])   
+                    isset($_POST['id']) && is_string($_POST['id'])
                 ) {
                     $id = (int) $_POST['id'];
                     $addImage = new AddImage();
                     if ($addImage->delete($id)) {
                         $output['status'] = true;
                         $output['notice'] = "element $id deleted";
-                    }
-                    else{
-                        $output['notice'] = "Deletion failed";
-                    }          
+                    } 
                 }
             break;
+
+            
 
         }
     }

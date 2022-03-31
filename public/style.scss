@@ -184,6 +184,9 @@ nav{
 
     }
 }
+#creat{
+    display: none;
+}
 // underline_shop active template*******
 .drop_active_cont{
     position: absolute;
@@ -602,7 +605,9 @@ textarea{
     }   
 }
 
-
+.file_path_cont{
+    background: #000;
+}
 //Media**************************************
 @media screen and (max-width: 790px ) {
     .img_container{
@@ -615,6 +620,7 @@ textarea{
     nav{
         display: none;
     }
+    
     .hiden_menu, .shop_cont{
         display: contents;
     }

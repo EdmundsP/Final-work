@@ -25,7 +25,8 @@ Contact:{
                             input.value = '';
                             input.checked = false;
                         }
-                        for (let textarea of form.querySelectorAll('textarea')) {
+                        for (let textarea of form.getElementById('input_message')) {
+                            console.log('test')
                             textarea.value = '';
                         }
                         document.getElementById('alert').textContent = ''
@@ -150,14 +151,19 @@ Subscribers:{
 
 AddImage: {
 
+
+    const img_container = document.querySelector('.img_container')
     const image_list = document.querySelector('#image_list tbody')
-    if (image_list != null){
+
+
+    if (image_list != null || img_container != null){
         req.get('api.php?name=getImages', function(response){
             for(let image_data of response.addImage){ 
                 printImageData(image_data)
             }
         })
     }
+
 
 
     const AddImageHandler = document.querySelector('#img_data')
@@ -174,7 +180,8 @@ AddImage: {
                         }
                         for (let textarea of form.querySelectorAll('textarea')) {
                             textarea.value = '';
-                        } 
+                        }
+                        
                     }
             })
         }
@@ -192,6 +199,7 @@ AddImage: {
                 delete_btn.textContent = 'delete'
                 delete_btn.dataset.id = image_data.id
                 delete_btn.onclick = deleteHandler
+                
 
 
                 let cell = document.createElement('td')
@@ -224,23 +232,32 @@ AddImage: {
 
             function deleteHandler(event) {
             event.preventDefault()
-            const url = this.getAttribute('href')
-            const data = new FormData()
-            data.append('id', this.dataset.id)
-            const btn = this
+            let file_path = image_data.image
+             if(file_path){
+                const file_path_cont = document.createElement('div')
+                file_path_cont.classList.add('file_path_cont')
+                img_container.appendChild(file_path_cont)
+                file_path_cont.textContent = file_path
+                }
+                const url = this.getAttribute('href')
+                const data = new FormData()
+                data.append('id', this.dataset.id)
+                const btn = this
 
                 req.post(url, data, function (response) {
                     btn.parentNode.parentNode.remove()
-                })  
+                })
+                 
+             
             }
-
-
+          
             if(image_list !=null){
                 
                 document.getElementById('fileToUpload').onchange = function (event){
                     const file = this.files[0]
                     const preview = document.querySelector('img')
-                    console.log(this.files[0].name)
+                    document.getElementById("image").value = this.files[0].name
+                    
                     const reader = new FileReader()
                   
                     reader.addEventListener("load", function () {
@@ -249,14 +266,86 @@ AddImage: {
                   
                     if (file) {
                       reader.readAsDataURL(file)
+                      
                     }
-                  }
+                }
                   
 
+           
+            
+
+                document.getElementById("creat").onclick = function(){
+
+                    const img_box = document.createElement('div')
+                    
+                    img_box.classList.add('img_box')
+                
+                    const img_link = document.createElement('a')
+                    img_link.setAttribute('href', './gallery.html')
+                    img_link.classList.add('img_link')
+                
+                    const img_prewiev = document.createElement('img')
+                    img_prewiev.setAttribute('src', '#')
+                    img_prewiev.src = './uploads/' + document.getElementById("image").value
+                   
+                    img_prewiev.classList.add('img_prewiev')
+                
+                    const img_info = document.createElement('div')
+                    img_info.classList.add('img_info')
+                
+                    const title = document.createElement('h3')
+                    title.textContent = document.getElementById("image_title").value
+                  
+                
+                    const description = document.createElement('p')
+                    description.textContent = document.getElementById("image_short_description").value
+                   
+                    
+                    const img_container = document.querySelector('.img_container')
+                    img_container.appendChild(img_box)
+                    img_box.appendChild(img_link)
+                    img_link.appendChild(img_prewiev)
+                    img_link.appendChild(img_info)
+                    img_info.appendChild(title)
+                    img_info.appendChild(description)
+                
+                }
             }
+           
 
+            if (img_container != null){
 
+                const img_box = document.createElement('div')
+                    
+                img_box.classList.add('img_box')
+            
+                const img_link = document.createElement('a')
+                img_link.setAttribute('href', './gallery.html')
+                img_link.classList.add('img_link')
+            
+                const img_prewiev = document.createElement('img')
+                img_prewiev.setAttribute('src', '#')
+                img_prewiev.src = './uploads/' + image_data.image
+                img_prewiev.classList.add('img_prewiev')
+            
+                const img_info = document.createElement('div')
+                img_info.classList.add('img_info')
+            
+                const title = document.createElement('h3')
+                title.textContent = image_data.title
+            
+                const description = document.createElement('p')
+                description.textContent = image_data.short_description
+                
+                const img_container = document.querySelector('.img_container')
+                img_container.appendChild(img_box)
+                img_box.appendChild(img_link)
+                img_link.appendChild(img_prewiev)
+                img_link.appendChild(img_info)
+                img_info.appendChild(title)
+                img_info.appendChild(description)
 
+            }
         }
     }
 
