@@ -1,4 +1,7 @@
 <?php
+
+use LDAP\Result;
+
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -40,9 +43,16 @@ if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+  $result = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
+  if ($result) {
+    file_put_contents($target_file, $result );
+    // chmod($target_file , 0777);
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+
+// if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
+//  šī koda rinda tika nomainīta ar kodu rindās 46,47,48.
+//  šī rinda saglabāja failu mapē, formātā kuru nesaprata ne sass, ne git, ne windovs un tapēc nobruka vs code

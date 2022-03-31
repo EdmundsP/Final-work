@@ -330,7 +330,8 @@ main{
     min-width: 250px;
     height: auto;
  }
- .img_container{
+ .img_container,
+ .in_shop{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -610,7 +611,8 @@ textarea{
 }
 //Media**************************************
 @media screen and (max-width: 790px ) {
-    .img_container{
+    .img_container,
+    .in_shop{
         grid-template-columns: repeat(1, 1fr);
     }
     .img_prewiev{
