@@ -57,7 +57,9 @@ class DB
         if (
             $this->conn->query($sql) &&
             $this->conn->affected_rows > 0
-            ) 
+            ) {
+                return true;  
+            }
         return false;
     }
     

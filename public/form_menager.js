@@ -4,6 +4,8 @@ Contact:{
 
     const contact_list = document.querySelector('#contact_list tbody')
     if (contact_list != null){
+
+
         req.get('api.php?name=getContact', function(response){
             for(let connection of response.contact){ 
                 printContact(connection)
@@ -11,11 +13,14 @@ Contact:{
         })
     }
     
-    const ContactSubmitHandler = document.querySelector('form')
+    const ContactSubmitHandler = document.getElementById('ContactSubmitHandler')
+
     if (ContactSubmitHandler != null){
+
         ContactSubmitHandler.onsubmit = function(event){
+
             event.preventDefault()
-            if (document.getElementById('subscription_check').checked ){
+            if (document.getElementById('subscription_check').checked ) {
                 const url = this.getAttribute('action')
                 let form = this
                 req.post(url, new FormData(this), function(response){
@@ -25,8 +30,7 @@ Contact:{
                             input.value = '';
                             input.checked = false;
                         }
-                        for (let textarea of form.getElementById('input_message')) {
-                            console.log('test')
+                        for (let textarea of form.querySelectorAll('textarea')) {
                             textarea.value = '';
                         }
                         document.getElementById('alert').textContent = ''
@@ -94,8 +98,9 @@ Subscribers:{
             }
         })
     } 
+
     
-    const SubscribersSubmitHandler = document.querySelector('form')
+    const SubscribersSubmitHandler = document.getElementById('SubscribersSubmitHandler')
     if (SubscribersSubmitHandler != null){
         SubscribersSubmitHandler.onsubmit = function (event){
             event.preventDefault()
