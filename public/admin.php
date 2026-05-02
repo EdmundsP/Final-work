@@ -10,7 +10,7 @@ include 'includes/nav.php';
     </div>
     <div class="center__no_mr">
         <div class="input_cont">
-            <form action="Uploads.php" method="post" enctype="multipart/form-data">
+            <form id="upload_form">
                 <label class="input_lable">Upload image file</label>
                 <input id="fileToUpload" type="file" name="fileToUpload" accept="image/*">
                 <span class="center_simpel">
@@ -18,6 +18,7 @@ include 'includes/nav.php';
                 </span>
                 <span class="center_simpel">
                     <button type="submit" class="btn_accent send">upload</button>
+                    <span id="upload_status" style="margin-left:1rem; font-size:0.9rem;"></span>
                 </span>
             </form>
 

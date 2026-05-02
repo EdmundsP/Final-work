@@ -127,7 +127,10 @@ const req = new Request()
         }
     }
 
-    const fileInput = document.getElementById('fileToUpload')
+    const fileInput   = document.getElementById('fileToUpload')
+    const uploadForm  = document.getElementById('upload_form')
+    const uploadStatus = document.getElementById('upload_status')
+
     if (fileInput) {
         fileInput.onchange = function () {
             const file = this.files[0]
@@ -138,8 +141,25 @@ const req = new Request()
                 if (preview) { preview.src = e.target.result; preview.style.display = 'block' }
             }
             reader.readAsDataURL(file)
-            const imageInput = document.getElementById('image')
-            if (imageInput) imageInput.value = file.name
+        }
+    }
+
+    if (uploadForm) {
+        uploadForm.onsubmit = function (e) {
+            e.preventDefault()
+            const file = fileInput && fileInput.files[0]
+            if (!file) { if (uploadStatus) uploadStatus.textContent = 'Please select a file first.'; return }
+
+            if (uploadStatus) { uploadStatus.style.color = '#888'; uploadStatus.textContent = 'Uploading...' }
+
+            const formData = new FormData()
+            formData.append('fileToUpload', file)
+
+            req.post('Uploads.php', formData, function (response) {
+                const imageInput = document.getElementById('image')
+                if (imageInput) imageInput.value = response.filename
+                if (uploadStatus) { uploadStatus.style.color = 'green'; uploadStatus.textContent = '✓ Uploaded: ' + response.filename }
+            })
         }
     }
 
