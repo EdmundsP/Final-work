@@ -31,6 +31,14 @@ class DB
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    protected function selectWhere(string $table_name, string $column, string $value) {
+        $safe_value = $this->conn->real_escape_string($value);
+        $this->last_sql = "SELECT * FROM `$table_name` WHERE `$column` = '$safe_value'";
+        $result = $this->conn->query($this->last_sql);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     protected function insertEntity($entity, $table_name) {
         $column_str = '';
         $value_str = '';
@@ -63,15 +71,9 @@ class DB
         return false;
     }
     
-    protected function deleteFileFromDir($image, string $table_name) {
-        $this->last_sql = "SELECT * FROM $table_name WHERE id=$image";
-        $file = 'uploads/'. $this->last_sql;
-        if ( 
-            unlink($file)
-            ){
-            return true;
-             }
-        return false;
+    protected function deleteFileFromDir(string $filename) {
+        $file = UPLOADS_DIR . basename($filename);
+        return file_exists($file) && unlink($file);
     }
 
 

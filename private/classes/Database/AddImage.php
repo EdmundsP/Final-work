@@ -13,6 +13,10 @@ class AddImage extends DB
         return $this->selectAll($this->table_name);
     }
 
+    public function getByCategory(string $category) {
+        return $this->selectWhere($this->table_name, 'category', $category);
+    }
+
     public function addEntity($entity) {
         return $this->insertEntity($entity, $this->table_name);
     }
