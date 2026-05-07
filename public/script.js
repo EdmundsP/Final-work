@@ -9,16 +9,12 @@ Dropdown_menu:{
     let drop_box_mob = document.querySelector('.drop_box_mob')
     let icon_open = document.querySelector('.icon_open')
 
-    drop_box_mob_opens_on_hover: {
+    drop_box_mob_opens_on_click: {
 
-        icon_open.onmouseover = function(event){
-            event.target.classList.contains('drop_box_mob')
-            drop_box_mob.style.display ='flex'
-        }
-        drop_box_mob.onmouseleave = function(event){
-            event.target.classList.contains('drop_box_mob')
-            drop_box_mob.style.display ='none'
-
+        icon_open.onclick = function(event){
+            event.preventDefault()
+            const isOpen = drop_box_mob.style.display === 'flex'
+            drop_box_mob.style.display = isOpen ? 'none' : 'flex'
         }
     }
     dropdown_menu_full_screen: {
