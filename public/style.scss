@@ -522,7 +522,6 @@ form{
 }
 textarea{
  width: 100%;
- min-width: 495px;
  margin: 8px 0 30px;
 }
 .form_check{
@@ -640,9 +639,6 @@ textarea{
     .name_mail{
         display: block;
     }
-    textarea{
-        min-width: 242.5px;
-       }
     .describe{
         min-width: 242.5px;
     }
